@@ -1,181 +1,241 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CYBERPUNK VECTOR GEN v6.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBERMESH — Premium Cyberpunk Seamless Textures Pack</title>
     <style>
         body {
-            /* Затемняющий слой поверх плит, чтобы они ушли на красивый задний план */
-            background-image: 
-                linear-gradient(rgba(10, 10, 12, 0.93), rgba(10, 10, 12, 0.93)), 
-                url('bg.png'); 
-            
-            background-repeat: repeat;
-            background-attachment: fixed;
-            background-size: 380px auto;
-            
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #00ffcc;
-            background-color: #0a0a0c;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0a0f1d; 
+            color: #ffffff;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            min-height: 100vh;
         }
-
-        /* Неоновый sci-fi заголовок */
-        h1 {
-            color: #00ffcc !important;
-            text-shadow: 0 0 12px rgba(0, 255, 204, 0.6);
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
+        .portfolio {
+            width: 85%;
+            max-width: 1200px;
+            text-align: center;
+            padding: 40px 0;
         }
-
-        /* Матовая панель управления (эффект матового стекла) */
-        .control-panel {
-            background: rgba(15, 15, 20, 0.85) !important;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 255, 204, 0.25);
+        
+        /* Главный баннер-обложка пака */
+        .main-cover {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
             border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 320px;
+            border: 2px solid #00ffcc;
+            box-shadow: 0 0 30px rgba(0, 255, 220, 0.2);
+            margin-bottom: 40px;
         }
 
-        .control-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        /* Контрастный белый текст для подписей (ползунков) */
-        .control-group label {
-            color: #ffffff !important;
-            font-weight: 600;
-            font-size: 13px;
+        /* Заголовок с эффектом неонового мерцания вывески */
+        h1 {
+            font-size: 3.5em;
+            margin: 0 0 10px 0;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 4px;
+            color: #00ffcc;
+            animation: neonBlink 3s infinite alternate;
+        }
+        
+        @keyframes neonBlink {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+                color: #004433;
+            }
         }
 
-        .shape-selector {
+        .subtitle {
+            color: #a0aec0;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .projects {
             display: flex;
-            gap: 20px;
-            margin-top: 4px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
         }
-
-        .shape-selector label {
+         /* Обновленный футуристичный стиль карточки */
+        .project {
+            background-color: #0d1326;
+            /* Добавили двойную полупрозрачную рамку */
+            border: 1px solid rgba(0, 255, 220, 0.4);
+            border-top: 3px solid #00ffcc; /* Сверху яркая неоновая полоса */
+            border-radius: 4px; /* Меньше радиус — более строгий хай-тек стиль */
+            padding: 20px;
+            margin: 15px 0;
+            width: calc(33.33% - 20px);
+            box-sizing: border-box;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: inset 0 0 10px rgba(0, 255, 220, 0.05), 0 5px 15px rgba(0,0,0,0.5);
             display: flex;
-            align-items: center;
-            gap: 6px;
-            color: #ffffff !important;
-            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Индустриальная кнопка EXPORT */
-        #download-btn {
-            background: transparent;
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: #ff007f;
+            border-top-color: #ff007f;
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.4), inset 0 0 15px rgba(255, 0, 127, 0.1);
+        }
+
+        /* Полная прокачка кнопок под стиль игрового HUD */
+        .buy-btn {
+            display: inline-block;
+            background: rgba(0, 255, 220, 0.03);
             color: #00ffcc;
             border: 1px solid #00ffcc;
-            padding: 12px;
-            border-radius: 6px;
+            padding: 14px 28px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
             font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 2px;
+            clip-path: polygon(0 0, 90% 0, 100% 30%, 100% 100%, 10% 100%, 0 70%); /* Срезанные футуристичные углы кнопки! */
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 10px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 255, 220, 0.1);
+        }
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 255, 220, 0.3);
+            border-color: #ff007f;
+        }
+        
+        /* Свободные резиновые настройки для картинок */
+        .project img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h2 {
+            font-size: 1.4em;
+            margin: 20px 0 10px 0;
+            color: #ff007f;
+            text-shadow: 0 0 5px rgba(255, 0, 127, 0.3);
+        }
+        p {
+            color: #a0aec0;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        
+        /* Кнопка заказа */
+        .buy-btn {
+            display: inline-block;
+            background: transparent;
+            color: #00ffcc;
+            border: 2px solid #00ffcc;
+            padding: 12px 24px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 220, 0.2);
+        }
+         .buy-btn:hover {
+            background: #ff007f;
+            color: #ffffff;
+            border-color: #ff007f;
+            box-shadow: 0 0 25px #ff007f;
+            text-shadow: 0 0 5px #ffffff;
+        }
+
+        /* Стильный профессиональный футер */
+        footer {
+            margin-top: 80px;
+            padding: 30px 0;
+            border-top: 1px solid rgba(0, 255, 220, 0.2);
+            color: #718096;
+            font-size: 0.8em;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-
-        #download-btn:hover {
-            background: #00ffcc;
-            color: #0a0a0f;
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.7);
+        footer p {
+            margin: 5px 0;
         }
-
-        /* Окно холста генератора */
-        #canvas {
-            display: inline-block;
-            background: #050508;
-            border: 1px solid rgba(0, 255, 204, 0.2);
-            box-shadow: 0 0 35px rgba(0,0,0,0.7);
-            line-height: 0;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 20px;
+        footer a {
+            color: #00ffcc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        footer a:hover {
+            color: #ff007f;
+            text-shadow: 0 0 10px #ff007f;
         }
     </style>
 </head>
 <body>
+    <div class="portfolio">
+        <!-- Главная обложка сверху -->
+        <img src="./images/cover.png" alt="CYBERMESH Banner" class="main-cover">
 
-    <h1>SYSTEM.GEOMETRY.GEN //</h1>
-
-    <div class="control-panel">
-        <div class="control-group">
-            <label>ГЕОМЕТРИЯ</label>
-            <div class="shape-selector">
-                <label><input type="radio" name="shape" value="circle" checked><span class="shape-option">Круг</span></label>
-                <label><input type="radio" name="shape" value="square"><span class="shape-option">Квадрат</span></label>
-            </div>
-        </div>
-        <div class="control-group">
-            <label>Количество линий</label>
-            <input type="range" id="lines" min="5" max="40" value="15">
-        </div>
-        <div class="control-group">
-            <label>Расстояние (шаг)</label>
-            <input type="range" id="step" min="2" max="20" value="6">
-        </div>
-        <div class="control-group">
-            <label>Толщина контура</label>
-            <input type="range" id="width" min="1" max="10" value="1">
-        </div>
-        <button id="download-btn">💾 EXPORT SVG</button>
-    </div>
-
-    <div id="canvas"></div>
-
-    <script>
-        let svgStr = "";
-        function draw() {
-            const size = 500, c = size / 2;
-            const lines = document.getElementById('lines').value;
-            const step = document.getElementById('step').value;
-            const thick = document.getElementById('width').value;
-            const shape = document.querySelector('input[name="shape"]:checked').value;
-            
-            let color = `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`;
-            svgStr = `<svg width="${size}" height="${size}" xmlns="http://w3.org">`;
-
-            for (let i = 1; i <= lines; i++) {
-                let r = i * step;
-                if (shape === "circle") {
-                    svgStr += `<circle cx="${c}" cy="${c}" r="${r}" stroke="${color}" stroke-width="${thick}" fill="none"/>`;
-                } else {
-                    svgStr += `<rect x="${c-r}" y="${c-r}" width="${r*2}" height="${r*2}" stroke="${color}" stroke-width="${thick}" fill="none"/>`;
-                }
-            }
-            svgStr += `</svg>`;
-            document.getElementById('canvas').innerHTML = svgStr;
-        }
-
-        document.querySelectorAll('input').forEach(el => el.addEventListener('input', draw));
-        document.querySelectorAll('input[name="shape"]').forEach(el => el.addEventListener('change', draw));
+        <h1>CYBERMESH</h1>
+        <div class="subtitle">Premium Cyberpunk Seamless Textures Pack</div>
         
-        document.getElementById('download-btn').addEventListener('click', function() {
-            const blob = new Blob([svgStr], { type: "image/svg+xml" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url; a.download = "vector.svg";
-            document.body.appendChild(a); a.click(); document.body.removeChild(a);
-        });
+        <div class="projects">
+            
+            <div class="project">
+                <div>
+                    <img src="./images/wrapper.png" alt="4K Resolution">
+                    <h2>4K Ultra-Res</h2>
+                    <p>60+ hyper-detailed tech textures. Perfect for 3D mapping, game dev, and futuristic UI design.</p>
+                </div>
+                <!-- Замени # на свою будущую ссылку с Lava.top -->
+                <a href="#" class="buy-btn">Get Pack — $9</a>
+            </div>
 
-        draw();
-    </script>
+            <div class="project">
+                <div>
+                    <img src="./images/dashboard.png" alt="100% Seamless">
+                    <h2>100% Seamless</h2>
+                    <p>Perfectly tiling patterns. No visible seams or edges, flawless repeating for infinite planes.</p>
+                </div>
+                <a href="#" class="buy-btn">Get Pack — $9</a>
+            </div>
+
+            <div class="project">
+                <div>
+                    <img src="./images/promo.png" alt="Commercial License">
+                    <h2>Commercial Use</h2>
+                    <p>Full commercial license included. Use it freely in your indie games, arts, and client projects.</p>
+                </div>
+                <a href="#" class="buy-btn">Get Pack — $9</a>
+            </div>
+
+        </div>
+
+        <!-- Наш официальный футер Cyber Studio -->
+        <footer>
+            <p>© 2026 CYBER STUDIO // ALL RIGHTS RESERVED</p>
+            <p>POWERED BY INTERNET INDEPENDENT AI ENGINE</p>
+            <p>NEED HELP? CONTACT <a href="mailto:cyberstudio@example.com">SUPPORT</a></p>
+        </footer>
+
+    </div>
 </body>
 </html>
