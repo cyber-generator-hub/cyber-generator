@@ -5,6 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYBERMESH — Premium Cyberpunk Seamless Textures Pack</title>
     <style>
+                /* Стили для всплывающего окна (Бэкграунд размытия) */
+        .modal {
+            display: none; /* Изначально скрыто */
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 15, 29, 0.8);
+            backdrop-filter: blur(8px); /* Размытие заднего фона — выглядит очень дорого! */
+        }
+
+        /* Само окно по центру */
+        .modal-content {
+            background-color: #121829;
+            border: 2px solid #ff007f;
+            box-shadow: 0 0 30px #ff007f;
+            margin: 15% auto;
+            padding: 30px;
+            width: 40%;
+            max-width: 500px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Кнопка закрытия (крестик) */
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            color: #718096;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close-btn:hover {
+            color: #00ffcc;
+        }
+
         body {
             font-family: 'Courier New', Courier, monospace;
             background-color: #0a0f1d; 
@@ -226,6 +268,17 @@
                 </div>
                 <a href="#" class="buy-btn">Get Pack — $9</a>
             </div>
+        <!-- Наше секретное всплывающее окно -->
+        <div id="cyberModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2 id="modalTitle">SYSTEM ALERT</h2>
+                <p id="modalDescription">Initializing asset download protocols...</p>
+                <div style="margin-top: 20px;">
+                    <code style="color: #00ffcc;">STATUS: READY FOR EXTRACTION</code>
+                </div>
+            </div>
+        </div>
 
         </div>
 
@@ -238,4 +291,52 @@
 
     </div>
 </body>
+    <script>
+        // 1. Находим все нужные элементы на странице
+        const modal = document.getElementById("cyberModal");
+        const closeBtn = document.querySelector(".close-btn");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDescription = document.getElementById("modalDescription");
+        
+        // Находим все наши карточки проектов
+        const cards = document.querySelectorAll(".project");
+
+        // Данные для каждого окна (в зависимости от того, на какую карточку нажали)
+        const info = [
+            { title: "SYSTEM: 4K RESOLUTION", desc: "Every asset is delivered in uncompressed 4096x4096px PNG format. Maximum micro-detail density for high-end production." },
+            { title: "SYSTEM: SEAMLESS TILING", desc: "Tested across global coordinates. Zero seams, zero texturing repeating artifacts. Flawless mathematical tiling loops." },
+            { title: "SYSTEM: COMMERCIAL LICENSE", desc: "Grants lifetime royalty-free rights for games, cinematic VFX, personal art, and commercial contracts worldwide." }
+        ];
+
+        // 2. Вешаем событие клика на каждую карточку
+        cards.forEach((card, index) => {
+            // Находим картинку внутри карточки, чтобы клик по кнопке "Buy" не открывал окно
+            const img = card.querySelector("img");
+            const h2 = card.querySelector("h2");
+
+            // Функция открытия окна
+            const openModal = () => {
+                modalTitle.innerText = info[index].title;
+                modalDescription.innerText = info[index].desc;
+                modal.style.display = "block";
+            };
+
+            // Клик по картинке или заголовку откроет наше окно
+            img.addEventListener("click", openModal);
+            h2.addEventListener("click", openModal);
+        });
+
+        // 3. Закрытие окна при клике на крестик
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        // 4. Закрытие окна при клике в любое пустое место экрана
+        window.addEventListener("click", (event) => {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+
 </html>
