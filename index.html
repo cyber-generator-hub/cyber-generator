@@ -4,6 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYBERMESH — Premium Cyberpunk Seamless Textures Pack</title>
+            /* Стили для галереи превью */
+        .preview-section {
+            margin-top: 60px;
+            padding: 30px;
+            background: rgba(18, 24, 41, 0.5);
+            border: 1px dashed rgba(0, 255, 220, 0.3);
+            border-radius: 8px;
+        }
+        .preview-section h3 {
+            color: #00ffcc;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 8px rgba(0, 255, 220, 0.3);
+        }
+                /* Новая, железобетонная сетка на CSS Grid */
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Строго 3 равные колонки */
+            gap: 20px; /* Фиксированные отступы между ними */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Исправленные настройки для элементов превью */
+        .preview-item {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            aspect-ratio: 1 / 1; /* Делает блоки идеально квадратными */
+        }
+
+        .preview-item:hover {
+            border-color: #00ffcc;
+            box-shadow: 0 0 15px rgba(0, 255, 220, 0.2);
+            transform: scale(1.02);
+        }
+
+        /* Картинка внутри теперь четко заполняет весь квадрат */
+        .preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Картинка заполнит блок без искажения пропорций */
+            display: block;
+        }
+
+        }
+
     <style>
                 /* Стили для всплывающего окна (Бэкграунд размытия) */
         .modal {
@@ -281,6 +333,22 @@
         </div>
 
         </div>
+                <!-- Блок превью реальных текстур из пака -->
+        <div class="preview-section">
+            <h3>Texture Pack Zoom Preview (4K Quality)</h3>
+            <div class="preview-grid">
+                <div class="preview-item">
+                    <img src="./images/preview1.png" alt="Cybermesh Preview 1">
+                </div>
+                <div class="preview-item">
+                    <img src="./images/preview2.png" alt="Cybermesh Preview 2">
+                </div>
+                <div class="preview-item">
+                    <img src="./images/preview3.png" alt="Cybermesh Preview 3">
+                </div>
+            </div>
+        </div>
+
 
         <!-- Наш официальный футер Cyber Studio -->
         <footer>
