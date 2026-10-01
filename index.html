@@ -4,284 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYBERMESH — Premium Cyberpunk Seamless Textures Pack</title>
-            /* Стили для галереи превью */
-        .preview-section {
-            margin-top: 60px;
-            padding: 30px;
-            background: rgba(18, 24, 41, 0.5);
-            border: 1px dashed rgba(0, 255, 220, 0.3);
-            border-radius: 8px;
-        }
-        .preview-section h3 {
-            color: #00ffcc;
-            font-size: 1.8em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            text-shadow: 0 0 8px rgba(0, 255, 220, 0.3);
-        }
-                /* Новая, железобетонная сетка на CSS Grid */
-        .preview-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Строго 3 равные колонки */
-            gap: 20px; /* Фиксированные отступы между ними */
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        /* Исправленные настройки для элементов превью */
-        .preview-item {
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            aspect-ratio: 1 / 1; /* Делает блоки идеально квадратными */
-        }
-
-        .preview-item:hover {
-            border-color: #00ffcc;
-            box-shadow: 0 0 15px rgba(0, 255, 220, 0.2);
-            transform: scale(1.02);
-        }
-
-        /* Картинка внутри теперь четко заполняет весь квадрат */
-        .preview-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Картинка заполнит блок без искажения пропорций */
-            display: block;
-        }
-
-        }
-
-    <style>
-                /* Стили для всплывающего окна (Бэкграунд размытия) */
-        .modal {
-            display: none; /* Изначально скрыто */
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(10, 15, 29, 0.8);
-            backdrop-filter: blur(8px); /* Размытие заднего фона — выглядит очень дорого! */
-        }
-
-        /* Само окно по центру */
-        .modal-content {
-            background-color: #121829;
-            border: 2px solid #ff007f;
-            box-shadow: 0 0 30px #ff007f;
-            margin: 15% auto;
-            padding: 30px;
-            width: 40%;
-            max-width: 500px;
-            border-radius: 8px;
-            text-align: center;
-            position: relative;
-        }
-
-        /* Кнопка закрытия (крестик) */
-        .close-btn {
-            position: absolute;
-            right: 20px;
-            top: 10px;
-            color: #718096;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        .close-btn:hover {
-            color: #00ffcc;
-        }
-
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #0a0f1d; 
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .portfolio {
-            width: 85%;
-            max-width: 1200px;
-            text-align: center;
-            padding: 40px 0;
-        }
-        
-        /* Главный баннер-обложка пака */
-        .main-cover {
-            width: 100%;
-            max-width: 900px;
-            height: auto;
-            border-radius: 12px;
-            border: 2px solid #00ffcc;
-            box-shadow: 0 0 30px rgba(0, 255, 220, 0.2);
-            margin-bottom: 40px;
-        }
-
-        /* Заголовок с эффектом неонового мерцания вывески */
-        h1 {
-            font-size: 3.5em;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #00ffcc;
-            animation: neonBlink 3s infinite alternate;
-        }
-        
-        @keyframes neonBlink {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-                text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
-            }
-            20%, 24%, 55% {
-                text-shadow: none;
-                color: #004433;
-            }
-        }
-
-        .subtitle {
-            color: #a0aec0;
-            font-size: 1.2em;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .projects {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-         /* Обновленный футуристичный стиль карточки */
-        .project {
-            background-color: #0d1326;
-            /* Добавили двойную полупрозрачную рамку */
-            border: 1px solid rgba(0, 255, 220, 0.4);
-            border-top: 3px solid #00ffcc; /* Сверху яркая неоновая полоса */
-            border-radius: 4px; /* Меньше радиус — более строгий хай-тек стиль */
-            padding: 20px;
-            margin: 15px 0;
-            width: calc(33.33% - 20px);
-            box-sizing: border-box;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: inset 0 0 10px rgba(0, 255, 220, 0.05), 0 5px 15px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project:hover {
-            transform: translateY(-8px);
-            border-color: #ff007f;
-            border-top-color: #ff007f;
-            box-shadow: 0 0 30px rgba(255, 0, 127, 0.4), inset 0 0 15px rgba(255, 0, 127, 0.1);
-        }
-
-        /* Полная прокачка кнопок под стиль игрового HUD */
-        .buy-btn {
-            display: inline-block;
-            background: rgba(0, 255, 220, 0.03);
-            color: #00ffcc;
-            border: 1px solid #00ffcc;
-            padding: 14px 28px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.95em;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 2px;
-            clip-path: polygon(0 0, 90% 0, 100% 30%, 100% 100%, 10% 100%, 0 70%); /* Срезанные футуристичные углы кнопки! */
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            box-shadow: 0 0 10px rgba(0, 255, 220, 0.1);
-        }
-        .project:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(0, 255, 220, 0.3);
-            border-color: #ff007f;
-        }
-        
-        /* Свободные резиновые настройки для картинок */
-        .project img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        h2 {
-            font-size: 1.4em;
-            margin: 20px 0 10px 0;
-            color: #ff007f;
-            text-shadow: 0 0 5px rgba(255, 0, 127, 0.3);
-        }
-        p {
-            color: #a0aec0;
-            font-size: 0.9em;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        
-        /* Кнопка заказа */
-        .buy-btn {
-            display: inline-block;
-            background: transparent;
-            color: #00ffcc;
-            border: 2px solid #00ffcc;
-            padding: 12px 24px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1em;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 255, 220, 0.2);
-        }
-         .buy-btn:hover {
-            background: #ff007f;
-            color: #ffffff;
-            border-color: #ff007f;
-            box-shadow: 0 0 25px #ff007f;
-            text-shadow: 0 0 5px #ffffff;
-        }
-
-        /* Стильный профессиональный футер */
-        footer {
-            margin-top: 80px;
-            padding: 30px 0;
-            border-top: 1px solid rgba(0, 255, 220, 0.2);
-            color: #718096;
-            font-size: 0.8em;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        footer p {
-            margin: 5px 0;
-        }
-        footer a {
-            color: #00ffcc;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        footer a:hover {
-            color: #ff007f;
-            text-shadow: 0 0 10px #ff007f;
-        }
-    </style>
 </head>
 <body>
     <div class="portfolio">
@@ -299,8 +21,7 @@
                     <h2>4K Ultra-Res</h2>
                     <p>60+ hyper-detailed tech textures. Perfect for 3D mapping, game dev, and futuristic UI design.</p>
                 </div>
-                <!-- Замени # на свою будущую ссылку с Lava.top -->
-                <a href="https://app.lava.top/products/ba034bf4-020d-4a8a-9145-abd820374d2f" class="buy-btn">Get Pack — $9</a>
+                <a href="https://lava.top" class="buy-btn" target="_blank">Get Pack — $9</a>
             </div>
 
             <div class="project">
@@ -309,7 +30,7 @@
                     <h2>100% Seamless</h2>
                     <p>Perfectly tiling patterns. No visible seams or edges, flawless repeating for infinite planes.</p>
                 </div>
-                <a href="https://app.lava.top/products/ba034bf4-020d-4a8a-9145-abd820374d2f" class="buy-btn">Get Pack — $9</a>
+                <a href="https://lava.top" class="buy-btn" target="_blank">Get Pack — $9</a>
             </div>
 
             <div class="project">
@@ -318,12 +39,27 @@
                     <h2>Commercial Use</h2>
                     <p>Full commercial license included. Use it freely in your indie games, arts, and client projects.</p>
                 </div>
-                <a href="https://app.lava.top/products/ba034bf4-020d-4a8a-9145-abd820374d2f" class="buy-btn">Get Pack — $9</a>
+                <a href="https://lava.top" class="buy-btn" target="_blank">Get Pack — $9</a>
             </div>
-        <!-- Наше секретное всплывающее окно -->
+
+        </div>
+
+        <!-- Центральная кнопка открытия скрытой галереи превью -->
+        <div style="margin: 50px 0;">
+            <button id="openGalleryBtn" class="gallery-trigger-btn">Open Zoom Preview Gallery</button>
+        </div>
+
+        <!-- Наш официальный футер Cyber Studio -->
+        <footer>
+            <p>© 2026 CYBER STUDIO // ALL RIGHTS RESERVED</p>
+            <p>POWERED BY INTERNET INDEPENDENT AI ENGINE</p>
+            <p>NEED HELP? CONTACT <a href="mailto:kusk.studio@yandex.ru">SUPPORT</a></p>
+        </footer>
+
+        <!-- Хакерское модальное окно информации -->
         <div id="cyberModal" class="modal">
             <div class="modal-content">
-                <span class="close-btn">&times;</span>
+                <span class="close-btn" id="closeInfoBtn">&times;</span>
                 <h2 id="modalTitle">SYSTEM ALERT</h2>
                 <p id="modalDescription">Initializing asset download protocols...</p>
                 <div style="margin-top: 20px;">
@@ -332,79 +68,269 @@
             </div>
         </div>
 
-        </div>
-                <!-- Блок превью реальных текстур из пака -->
-        <div class="preview-section">
-            <h3>Texture Pack Zoom Preview (4K Quality)</h3>
-            <div class="preview-grid">
-                <div class="preview-item">
-                    <img src="./images/preview1.png" alt="Cybermesh Preview 1">
-                </div>
-                <div class="preview-item">
-                    <img src="./images/preview2.png" alt="Cybermesh Preview 2">
-                </div>
-                <div class="preview-item">
-                    <img src="./images/preview3.png" alt="Cybermesh Preview 3">
+        <!-- Интерактивная Полноэкранная Галерея (Изначально скрыта) -->
+        <div id="galleryModal" class="modal">
+            <div class="gallery-modal-content">
+                <span class="close-btn" id="closeGalleryBtn">&times;</span>
+                <h2 style="color: #00ffcc; text-shadow: 0 0 10px #00ffcc; margin-bottom: 30px;">TEXTURE PACK PREVIEW (4K QUALITY)</h2>
+                
+                <!-- Железобетонная сетка Grid -->
+                <div class="preview-grid">
+                    <div class="preview-item">
+                        <img src="./images/preview1.png" alt="Texture 1">
+                    </div>
+                    <div class="preview-item">
+                        <img src="./images/preview2.png" alt="Texture 2">
+                    </div>
+                    <div class="preview-item">
+                        <img src="./images/preview3.png" alt="Texture 3">
+                    </div>
                 </div>
             </div>
         </div>
 
-
-        <!-- Наш официальный футер Cyber Studio -->
-        <footer>
-            <p>© 2026 CYBER STUDIO // ALL RIGHTS RESERVED</p>
-            <p>POWERED BY INTERNET INDEPENDENT AI ENGINE</p>
-            <p>NEED HELP? CONTACT <a href="mailto:cyberstudio@example.com">SUPPORT</a></p>
-        </footer>
-
     </div>
-</body>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0a0f1d; 
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .portfolio {
+            width: 85%;
+            max-width: 1200px;
+            text-align: center;
+            padding: 40px 0;
+        }
+        .main-cover {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            border-radius: 12px;
+            border: 2px solid #00ffcc;
+            box-shadow: 0 0 30px rgba(0, 255, 220, 0.2);
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 3.5em;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #00ffcc;
+            animation: neonBlink 3s infinite alternate;
+        }
+        @keyframes neonBlink {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+            }
+            20%, 24%, 55% { text-shadow: none; color: #004433; }
+        }
+        .subtitle {
+            color: #a0aec0;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .projects {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .project {
+            background-color: #0d1326;
+            border: 1px solid rgba(0, 255, 220, 0.4);
+            border-top: 3px solid #00ffcc;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 15px 0;
+            width: calc(33.33% - 20px);
+            box-sizing: border-box;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: #ff007f;
+            border-top-color: #ff007f;
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.4);
+        }
+        .project img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+        h2 {
+            font-size: 1.4em;
+            margin: 20px 0 10px 0;
+            color: #ff007f;
+            text-shadow: 0 0 5px rgba(255, 0, 127, 0.3);
+        }
+        p { color: #a0aec0; font-size: 0.9em; line-height: 1.5; margin-bottom: 20px; }
+        
+        .buy-btn {
+            display: inline-block;
+            background: rgba(0, 255, 220, 0.03);
+            color: #00ffcc;
+            border: 1px solid #00ffcc;
+            padding: 14px 28px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 2px;
+            clip-path: polygon(0 0, 90% 0, 100% 30%, 100% 100%, 10% 100%, 0 70%);
+            transition: all 0.3s ease;
+        }
+        .buy-btn:hover {
+            background: #ff007f; color: #ffffff; border-color: #ff007f; box-shadow: 0 0 25px #ff007f;
+        }
+
+        /* КНОПКА ОТКРЫТИЯ ГАЛЕРЕИ */
+        .gallery-trigger-btn {
+            background: transparent;
+            color: #ff007f;
+            border: 2px solid #ff007f;
+            padding: 16px 32px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+        .gallery-trigger-btn:hover {
+            background: #ff007f;
+            color: #ffffff;
+            box-shadow: 0 0 35px #ff007f;
+            text-shadow: 0 0 8px #ffffff;
+        }
+
+        /* СИСТЕМНЫЕ ОКНА И БЛЮР */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+        }
+        .modal-content {
+            background-color: #121829;
+            border: 2px solid #ff007f;
+            box-shadow: 0 0 30px #ff007f;
+            margin: 15% auto; padding: 30px; width: 40%; max-width: 500px; border-radius: 8px;
+        }
+        
+        /* ОКНО ДЛЯ ПРЕВЬЮ ГАЛЕРЕИ */
+        .gallery-modal-content {
+            background-color: #0d1326;
+            border: 2px solid #00ffcc;
+            box-shadow: 0 0 40px rgba(0, 255, 220, 0.3);
+            margin: 5% auto;
+            padding: 40px;
+            width: 80%;
+            max-width: 1000px;
+            border-radius: 8px;
+        }
+
+        .close-btn {
+            position: absolute; right: 25px; top: 15px; color: #718096; font-size: 35px; cursor: pointer;
+        }
+        .close-btn:hover { color: #00ffcc; }
+
+        /* ИДЕАЛЬНАЯ СЕТКА GRID ДЛЯ ПРЕВЬЮ */
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            width: 100%;
+        }
+        .preview-item {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            transition: all 0.3s ease;
+        }
+        .preview-item:hover {
+            border-color: #00ffcc;
+            box-shadow: 0 0 20px rgba(0, 255, 220, 0.4);
+            transform: scale(1.03);
+        }
+        .preview-item img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+
+        footer {
+            margin-top: 80px; padding: 30px 0; border-top: 1px solid rgba(0, 255, 220, 0.2);
+            color: #718096; font-size: 0.8em; letter-spacing: 1px; text-transform: uppercase;
+        }
+        footer a { color: #00ffcc; text-decoration: none; }
+        footer a:hover { color: #ff007f; }
+    </style>
+</head>
     <script>
-        // 1. Находим все нужные элементы на странице
-        const modal = document.getElementById("cyberModal");
-        const closeBtn = document.querySelector(".close-btn");
+        // 1. Окна Информации по карточкам
+        const infoModal = document.getElementById("cyberModal");
+        const closeInfoBtn = document.getElementById("closeInfoBtn");
         const modalTitle = document.getElementById("modalTitle");
         const modalDescription = document.getElementById("modalDescription");
-        
-        // Находим все наши карточки проектов
         const cards = document.querySelectorAll(".project");
 
-        // Данные для каждого окна (в зависимости от того, на какую карточку нажали)
         const info = [
             { title: "SYSTEM: 4K RESOLUTION", desc: "Every asset is delivered in uncompressed 4096x4096px PNG format. Maximum micro-detail density for high-end production." },
             { title: "SYSTEM: SEAMLESS TILING", desc: "Tested across global coordinates. Zero seams, zero texturing repeating artifacts. Flawless mathematical tiling loops." },
             { title: "SYSTEM: COMMERCIAL LICENSE", desc: "Grants lifetime royalty-free rights for games, cinematic VFX, personal art, and commercial contracts worldwide." }
         ];
 
-        // 2. Вешаем событие клика на каждую карточку
         cards.forEach((card, index) => {
-            // Находим картинку внутри карточки, чтобы клик по кнопке "Buy" не открывал окно
             const img = card.querySelector("img");
             const h2 = card.querySelector("h2");
-
-            // Функция открытия окна
-            const openModal = () => {
+            const openInfo = () => {
                 modalTitle.innerText = info[index].title;
                 modalDescription.innerText = info[index].desc;
-                modal.style.display = "block";
+                infoModal.style.display = "block";
             };
-
-            // Клик по картинке или заголовку откроет наше окно
-            img.addEventListener("click", openModal);
-            h2.addEventListener("click", openModal);
+            img.addEventListener("click", openInfo);
+            h2.addEventListener("click", openInfo);
         });
 
-        // 3. Закрытие окна при клике на крестик
-        closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
+        closeInfoBtn.addEventListener("click", () => { infoModal.style.display = "none"; });
+
+        // 2. Окно Полноэкранной Галереи Превью
+        const galleryModal = document.getElementById("galleryModal");
+        const openGalleryBtn = document.getElementById("openGalleryBtn");
+        const closeGalleryBtn = document.getElementById("closeGalleryBtn");
+
+        openGalleryBtn.addEventListener("click", () => {
+            galleryModal.style.display = "block";
         });
 
-        // 4. Закрытие окна при клике в любое пустое место экрана
+        closeGalleryBtn.addEventListener("click", () => {
+            galleryModal.style.display = "none";
+        });
+
+        // Закрытие любого окна при клике на пустоту
         window.addEventListener("click", (event) => {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+            if (event.target == infoModal) infoModal.style.display = "none";
+            if (event.target == galleryModal) galleryModal.style.display = "none";
         });
     </script>
-
 </html>
